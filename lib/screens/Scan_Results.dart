@@ -52,23 +52,20 @@ class _ScanResultsState extends State<ScanResults> {
                             
                       ),
                           ),
-                          SizedBox(height: 30,),
-                              Text("Code",style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 25,
+                          SizedBox(height: 15,),
+                          Center(
+                            child: Container(
+                              height: 200,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                                image: DecorationImage(
+                                  image: NetworkImage(snapshot.data.product.imageUrl),
+                                  fit: BoxFit.fill
+                                )
                               ),
-                              ),
-                              Container(
-
-                                child: snapshot.data.code!=null?Text(snapshot.data.code,style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 15,
-                                ),):Text("Nothing Found",style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 15,
-                                ),),
-                              ),
-                          
+                            ),
+                          ),
                           SizedBox(height: 20,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -79,7 +76,24 @@ class _ScanResultsState extends State<ScanResults> {
                               ),
                               ),
                               Container(
+
                                 child: snapshot.data.product.ingredientsTextEn!=null?Text(snapshot.data.product.ingredientsTextEn,style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 15,
+                                ),):Text("Nothing Found",style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 15,
+                                ),),
+                              ),
+                              SizedBox(height: 30,),
+                              Text("Code",style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 25,
+                              ),
+                              ),
+                              Container(
+
+                                child: snapshot.data.code!=null?Text(snapshot.data.code,style: TextStyle(
                                   fontFamily: "Poppins",
                                   fontSize: 15,
                                 ),):Text("Nothing Found",style: TextStyle(
