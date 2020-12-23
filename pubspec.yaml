@@ -30,6 +30,7 @@ dependencies:
   flutter_barcode_scanner: ^1.0.1
   nice_button: ^0.1.7
   font_awesome_flutter: ^8.11.0
+  http: ^0.12.2
 
 dev_dependencies:
   flutter_test:

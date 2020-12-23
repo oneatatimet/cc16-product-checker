@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/Scanner.dart';
+import 'package:cc16_product_checker/router.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,7 +19,9 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.white,
 
       ),
-      home: Scanner()
+      home: Scanner(),
+      onGenerateRoute: generateRoute,
+
     );
   }
 }

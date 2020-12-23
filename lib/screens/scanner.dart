@@ -42,6 +42,7 @@ class _MyAppState extends State<Scanner> {
     setState(() {
       _scanBarcode = barcodeScanRes;
     });
+    Navigator.pushNamed(context, 'scanResult',arguments: barcodeScanRes);
   }
   
   @override
