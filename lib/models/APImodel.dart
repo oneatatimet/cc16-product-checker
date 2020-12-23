@@ -48,7 +48,6 @@ class Product {
     ingredientsTextEn: json["ingredients_text_en"] == null ? null : json["ingredients_text_en"],
     imageUrl: json["image_url"] == null ? null : json["image_url"],
   );
-
   Map<String, dynamic> toJson() => {
     "product_name": productName == null ? null : productName,
     "ingredients_text_en": ingredientsTextEn == null ? null : ingredientsTextEn,
