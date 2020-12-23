@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cc16_product_checker/models/APImodel.dart';
 import 'package:cc16_product_checker/net/api.dart';
 
 // ignore: must_be_immutable
@@ -11,7 +12,7 @@ class ScanResults extends StatefulWidget {
 
 class _ScanResultsState extends State<ScanResults> {
   MyApi api = new MyApi();
-  Future myproduct;
+  Future<ProductDetails> myproduct;
   @override
   void initState() {
     myproduct = api.fetchproducts(widget.product);

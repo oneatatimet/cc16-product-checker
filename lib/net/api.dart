@@ -1,3 +1,4 @@
+import 'package:cc16_product_checker/models/APImodel.dart';
 import 'package:http/http.dart' as http;
 
 class MyApi {
@@ -9,15 +10,19 @@ class MyApi {
 
   MyApi._internal();
 
-  Future fetchproducts(String code) async {
+  Future<ProductDetails> fetchproducts(String code) async {
     String url =
         'https://world.openfoodfacts.org/api/v0/product/' + code + '.json';
     final response = await http.get(url);
     if (response.statusCode == 200) {
       final String responsestring = response.body;
-      print(responsestring);
+      ProductDetails list = productDetailsFromJson(responsestring);
+      print(list.product);
+      return list;
     } else {
-      print("not working");
+      final String responsestring = response.body;
+      ProductDetails list = productDetailsFromJson(responsestring);
+      return list;
     }
   }
 }
