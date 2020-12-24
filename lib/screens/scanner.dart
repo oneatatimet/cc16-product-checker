@@ -14,10 +14,10 @@ class Scanner extends StatefulWidget {
 }
 
 class _MyAppState extends State<Scanner> {
-  String _scanBarcode = '';
+  String _scanBarcode = ' ';
 
-  var firstColor = Color(0xff5b86e5), secondColor = Color(0xff36d1dc);
-  
+ 
+  var firstColor = Color(0xff36d1dc), secondColor = Color(0xff140257);
 
   @override
   void initState() {
@@ -34,6 +34,7 @@ class _MyAppState extends State<Scanner> {
     } on PlatformException {
       barcodeScanRes = 'Failed to get platform version.';
     }
+
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
     // setState to update our non-existent appearance.
@@ -42,15 +43,18 @@ class _MyAppState extends State<Scanner> {
     setState(() {
       _scanBarcode = barcodeScanRes;
     });
+
     Navigator.pushNamed(context, 'scanResult',arguments: barcodeScanRes);
   }
-  
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
         appBar: AppBar(
             backgroundColor:Color(0xff140257),
-            title: Center(child: const Text('App'))),
+            title: Center(child: const Text('Product Checker'))),
         body: Builder(builder: (BuildContext context) {
           return Container(
               alignment: Alignment.center,
@@ -66,13 +70,22 @@ class _MyAppState extends State<Scanner> {
                       gradientColors: [firstColor,secondColor],
                       onPressed:() => scanQR(), background: null,
                     ),
-
+                    
                     SizedBox(height: 20,),
-                    Text('Scan result:',
-                        style: TextStyle(fontSize: 20, color: Color(0xff140257), fontWeight: FontWeight.bold)),
-                    SizedBox(height: 20,),
+                    NiceButton(
+                      radius: 40,
+                      padding: const EdgeInsets.all(15),
+                      text: "Product List",
+                      icon: FontAwesomeIcons.list,
+                      gradientColors: [firstColor,secondColor],
+                      onPressed:() {
+                      Navigator.pushNamed(context, "listview");
+                      }, background: null,
+                    ),
                     Text(_scanBarcode,
                         style: TextStyle(fontSize: 20, color: Color(0xff140257), fontWeight: FontWeight.bold))
+
+
                   ]));
         }));
   }
