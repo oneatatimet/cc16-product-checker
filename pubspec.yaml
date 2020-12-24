@@ -32,6 +32,8 @@ dependencies:
   font_awesome_flutter: ^8.11.0
   http: ^0.12.2
   path_provider: ^1.6.24
+  shared_preferences: ^0.5.12+4
+  flutter_svg: ^0.18.1
 
 dev_dependencies:
   flutter_test:
