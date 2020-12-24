@@ -102,6 +102,38 @@ class _ScanResultsState extends State<ScanResults> {
                                 ),),
                               ),
                             ],
+                            ),
+                           SizedBox(height: 20,),
+                          Container(
+                            height: 50,
+                            width: MediaQuery.of(context).size.width,
+                            child: RaisedButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  side: BorderSide(color: Color(0xff140257))),
+                              onPressed: () {},
+                              color: Color(0xff140257),
+                              textColor: Colors.white,
+                              child: Text("Save Data".toUpperCase(),
+                                  style: TextStyle(fontSize: 14)),
+                            ),
+                          ),
+                          SizedBox(height: 20,),
+                          Container(
+                            height: 50,
+                            width: MediaQuery.of(context).size.width,
+                            child: RaisedButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  side: BorderSide(color: Color(0xff140257))),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              color: Color(0xff140257),
+                              textColor: Colors.white,
+                              child: Text("Scan New".toUpperCase(),
+                                  style: TextStyle(fontSize: 14)),
+                            ),
                           ),
                         ],
                       ),
@@ -109,10 +141,12 @@ class _ScanResultsState extends State<ScanResults> {
                   ): Container(
                     child: Text("Not Found"),
                   ),
+
                 );
           }
         },
       )
-        );
+    );
+
   }
 }
