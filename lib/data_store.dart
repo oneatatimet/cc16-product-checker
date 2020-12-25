@@ -30,7 +30,6 @@ class Json_Datafetch {
 
   Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
-
     return directory.path;
   }
 
